@@ -14,12 +14,12 @@ function StudentViewCommonHeader() {
   }
 
   return (
-    <header className="flex items-center justify-between p-4 border-b relative">
+    <header className="flex items-center justify-between p-4 border-b relative bg-blue-900 text-white">
       <div className="flex items-center space-x-4">
-        <Link to="/home" className="flex items-center hover:text-black">
+        <Link to="/home" className="flex items-center hover:text-white">
           <GraduationCap className="h-8 w-8 mr-4 " />
-          <span className="font-extrabold md:text-xl text-[14px]">
-            LMS LEARN
+          <span className="font-extrabold md:text-xl text-[14px]  ">
+            LMS NITJ
           </span>
         </Link>
         <div className="flex items-center space-x-1">
@@ -30,7 +30,7 @@ function StudentViewCommonHeader() {
                 ? null
                 : navigate("/courses");
             }}
-            className="text-[14px] md:text-[16px] font-medium"
+            className="text-[14px] md:text-[16px] font-medium text-black"
           >
             Explore Courses
           </Button>
