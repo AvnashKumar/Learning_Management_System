@@ -194,7 +194,7 @@ function StudentViewCoursesPage() {
               studentViewCoursesList.map((courseItem) => (
                 <Card
                   onClick={() => handleCourseNavigate(courseItem?._id)}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:shadow-md hover:shadow-blue-800"
                   key={courseItem?._id}
                 >
                   <CardContent className="flex gap-4 p-4">
