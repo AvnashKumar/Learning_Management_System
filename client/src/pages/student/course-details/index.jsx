@@ -20,6 +20,7 @@ import {
 import { CheckCircle, Globe, Lock, PlayCircle } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { addCourseService } from "@/services"; // Make sure this is imported
 
 function StudentViewCourseDetailsPage() {
   const {
@@ -73,6 +74,26 @@ function StudentViewCourseDetailsPage() {
     console.log(getCurrentVideoInfo);
     setDisplayCurrentVideoFreePreview(getCurrentVideoInfo?.videoUrl);
   }
+
+async function handleAddCourse() {
+  const addCoursePayload = {
+    userId: auth?.user?._id,
+    userName: auth?.user?.userName,
+    userEmail: auth?.user?.userEmail,
+    courseId: studentViewCourseDetails?._id,
+  };
+
+  console.log(addCoursePayload, "addCoursePayload");
+
+  const response = await addCourseService(addCoursePayload);
+
+  if (response?.success) {
+    navigate(`/student-courses`);
+  } else {
+    console.error("Failed to add course", response?.message);
+  }
+}
+
 
   async function handleCreatePayment() {
     const paymentPayload = {
@@ -233,12 +254,14 @@ function StudentViewCourseDetailsPage() {
               </div>
               <div className="mb-4">
                 <span className="text-3xl font-bold">
-                  ${studentViewCourseDetails?.pricing}
+                 ₹{studentViewCourseDetails?.pricing} 
                 </span>
               </div>
+              {studentViewCourseDetails?.pricing >0 ? 
               <Button onClick={handleCreatePayment} className="w-full">
                 Buy Now
-              </Button>
+              </Button> : <Button onClick={handleAddCourse} className="w-full">Add Course</Button>}
+             
             </CardContent>
           </Card>
         </aside>

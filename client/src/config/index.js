@@ -52,15 +52,12 @@ export const initialSignUpFormData = {
 
 export const languageOptions = [
   { id: "english", label: "English" },
-  { id: "spanish", label: "Spanish" },
+  { id: "hindi", label: "Hindi" },
+  { id: "punjabi", label: "Punjabi" },
   { id: "french", label: "French" },
-  { id: "german", label: "German" },
+  { id: "spanish", label: "Spanish" },
   { id: "chinese", label: "Chinese" },
-  { id: "japanese", label: "Japanese" },
-  { id: "korean", label: "Korean" },
-  { id: "portuguese", label: "Portuguese" },
-  { id: "arabic", label: "Arabic" },
-  { id: "russian", label: "Russian" },
+
 ];
 
 export const courseLevelOptions = [
@@ -70,16 +67,24 @@ export const courseLevelOptions = [
 ];
 
 export const courseCategories = [
-  { id: "web-development", label: "Web Development" },
-  { id: "backend-development", label: "Backend Development" },
+  { id: "computer-science", label: "Computer Science and Engineering" },
+  { id: "information-technology", label: "Information Technology" },
+  { id: "electronics-communication", label: "Electronics and Communication Engineering" },
+  { id: "electrical", label: "Electrical Engineering" },
+  { id: "instrumentation-control", label: "Instrumentation and Control Engineering" },
+  { id: "mechanical", label: "Mechanical Engineering" },
+  { id: "civil", label: "Civil Engineering" },
+  { id: "chemical", label: "Chemical Engineering" },
+  { id: "industrial-production", label: "Industrial and Production Engineering" },
+  { id: "biotechnology", label: "Bio Technology" },
+  { id: "textile", label: "Textile Technology" },
+  { id: "mathematics", label: "Mathematics" },
+  { id: "physics", label: "Physics" },
+  { id: "chemistry", label: "Chemistry" },
+  { id: "humanities-management", label: "Humanities and Management" },
   { id: "data-science", label: "Data Science" },
-  { id: "machine-learning", label: "Machine Learning" },
-  { id: "artificial-intelligence", label: "Artificial Intelligence" },
-  { id: "cloud-computing", label: "Cloud Computing" },
-  { id: "cyber-security", label: "Cyber Security" },
-  { id: "mobile-development", label: "Mobile Development" },
-  { id: "game-development", label: "Game Development" },
-  { id: "software-engineering", label: "Software Engineering" },
+  { id: "ml-ai", label: "Machine Learning and Artifical Intelligence" }
+
 ];
 
 export const courseLandingPageFormControls = [
