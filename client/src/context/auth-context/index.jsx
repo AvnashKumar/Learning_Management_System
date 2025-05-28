@@ -1,7 +1,15 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import { initialSignInFormData, initialSignUpFormData } from "@/config";
-import { checkAuthService, loginService, registerService } from "@/services";
+import {
+  initialSignInFormData,
+  initialSignUpFormData,
+} from "@/config";
+import {
+  checkAuthService,
+  loginService,
+  registerService,
+} from "@/services";
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 
@@ -16,58 +24,71 @@ export default function AuthProvider({ children }) {
 
   async function handleRegisterUser(event) {
     event.preventDefault();
-    const data = await registerService(signUpFormData);
+    try {
+      const data = await registerService(signUpFormData);
+      if (data?.success) {
+        toast.success("Successfully registered! Sign-In to proceed.");
+        setSignUpFormData(initialSignUpFormData); // Clear form
+      } else {
+        toast.error("Registration failed! Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Registration error! Please try again.");
+    }
   }
 
   async function handleLoginUser(event) {
     event.preventDefault();
-    const data = await loginService(signInFormData);
-    console.log(data, "datadatadatadatadata");
-
-    if (data.success) {
-      sessionStorage.setItem(
-        "accessToken",
-        JSON.stringify(data.data.accessToken)
-      );
-      setAuth({
-        authenticate: true,
-        user: data.data.user,
-      });
-    } else {
-      setAuth({
-        authenticate: false,
-        user: null,
-      });
-    }
-  }
-
-  //check auth user
-
-  async function checkAuthUser() {
     try {
-      const data = await checkAuthService();
-      if (data.success) {
+      const data = await loginService(signInFormData);
+      console.log("Login response:", data);
+
+      if (data?.success) {
+        sessionStorage.setItem(
+          "accessToken",
+          JSON.stringify(data.data.accessToken)
+        );
         setAuth({
           authenticate: true,
           user: data.data.user,
         });
-        setLoading(false);
+        setSignInFormData(initialSignInFormData); // Clear form
       } else {
         setAuth({
           authenticate: false,
           user: null,
         });
-        setLoading(false);
+        toast.error("Login failed! Please check your credentials.");
       }
     } catch (error) {
-      console.log(error);
-      if (!error?.response?.data?.success) {
+      console.error(error);
+      toast.error("Login error! Please try again.");
+    }
+  }
+
+  async function checkAuthUser() {
+    try {
+      const data = await checkAuthService();
+      if (data?.success) {
+        setAuth({
+          authenticate: true,
+          user: data.data.user,
+        });
+      } else {
         setAuth({
           authenticate: false,
           user: null,
         });
-        setLoading(false);
       }
+    } catch (error) {
+      console.error("Auth check error:", error);
+      setAuth({
+        authenticate: false,
+        user: null,
+      });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -81,8 +102,6 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     checkAuthUser();
   }, []);
-
-  console.log(auth, "gf");
 
   return (
     <AuthContext.Provider
