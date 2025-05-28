@@ -53,7 +53,7 @@ function StudentHomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-    <section className="flex flex-col lg:flex-row items-center justify-between py-8 lg:py-28 px-10 lg:px-8 bg-yellow-200">
+    <section className="flex flex-col lg:flex-row items-center justify-between py-8 lg:py-28 px-10 lg:px-8 ">
         <div className="lg:w-1/2 lg:mr-12 ">
           <h1 className="text-4xl font-bold mb-4">Skill up with NIT Jalandhar</h1>
           <p className="text-xl">
