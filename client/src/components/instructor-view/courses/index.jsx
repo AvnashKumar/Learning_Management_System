@@ -47,6 +47,7 @@ function InstructorCourses({ listOfCourses }) {
             <TableHeader>
               <TableRow>
                 <TableHead>Course</TableHead>
+                <TableHead>Instructor Name</TableHead>
                 <TableHead>Students</TableHead>
                 <TableHead>Revenue</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -58,6 +59,9 @@ function InstructorCourses({ listOfCourses }) {
                     <TableRow>
                       <TableCell className="font-medium">
                         {course?.title}
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        {course?.instructorName}
                       </TableCell>
                       <TableCell>{course?.students?.length}</TableCell>
                       <TableCell>
