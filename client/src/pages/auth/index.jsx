@@ -69,6 +69,12 @@ function AuthPage() {
           <TabsContent value="signin">
             <Card className="p-6 space-y-4">
               <CardHeader>
+                <div class="flex flex-col items-center justify-center mb-2">
+                                    <p class="text-3xl font-bold mb-4">Welcome To LMS NITJ</p>
+
+                  <img src="/nitj_logo.png" class="h-24 w-24" />
+                </div>
+
                 <CardTitle>Sign in to your account</CardTitle>
                 <CardDescription>
                   Enter your email and password to access your account
@@ -89,6 +95,11 @@ function AuthPage() {
           <TabsContent value="signup">
             <Card className="p-6 space-y-4">
               <CardHeader>
+                <div class="flex flex-col items-center justify-center mb-2">
+                                    <p class="text-3xl font-bold mb-4">Welcome To LMS NITJ</p>
+
+                  <img src="/nitj_logo.png" class="h-24 w-24" />
+                </div>
                 <CardTitle>Create a new account</CardTitle>
                 <CardDescription>
                   Enter your details to get started
