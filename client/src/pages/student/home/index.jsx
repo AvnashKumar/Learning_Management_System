@@ -2,6 +2,7 @@ import { courseCategories } from "@/config";
 import { Button } from "@/components/ui/button";
 import { useContext, useEffect } from "react";
 import { StudentContext } from "@/context/student-context";
+//comment
 import {
   checkCoursePurchaseInfoService,
   fetchStudentViewCourseListService,
@@ -62,7 +63,7 @@ function StudentHomePage() {
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
-            src='/heroimage1.jpeg'
+            src='/heroimage2.jpeg'
             width={600}
             height={400}
             className="w-full h-auto rounded-lg shadow-lg"
