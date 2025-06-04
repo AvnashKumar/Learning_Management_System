@@ -63,7 +63,7 @@ function StudentHomePage() {
         </div>
         <div className="lg:w-full mb-8 lg:mb-0">
           <img
-            src='/heroimage2.jpeg'
+            src='/heroimage2.jpg'
             width={600}
             height={400}
             className="w-full h-auto rounded-lg shadow-lg"
